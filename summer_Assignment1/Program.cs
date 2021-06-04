@@ -179,7 +179,7 @@ namespace summer_Assignment1
             {
 
                 int sum = 0, leftsum = 0;
-                //using the for loops to iterate through the arrays
+                //using the for loops to iterate through the arrays to find the pivot index
                 for (int x = 0; x < nums.Length - 1; x++) sum += x;
                 for (int i = 0; i < nums.Length; ++i)
                 {
