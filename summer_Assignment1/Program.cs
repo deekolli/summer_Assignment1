@@ -121,10 +121,10 @@ namespace summer_Assignment1
         static public bool CheckIfPangram(string s)
         {
             try { 
-            //Initialize a variable containing the 26 alphabet
+            //Initialize a variable containing the 26 alphabet(regular expression)
             string reg= "abcdefghijklmnopqrstuvwxyz";
             int count = 0;
-
+           //Iterating every character in the regular expression and the string we entered using for loop
             foreach (char c in reg)
             {
                 foreach (char c2 in s)
@@ -153,7 +153,7 @@ namespace summer_Assignment1
         {
             try { 
             int count = 0;
-            //for
+            //iterating using for loop through the arrays and using conditional statements to identify the good pairs
             for (int i = 0; i < arr.Length - 1; i++)
             {
                 for (int j = i + 1; j < arr.Length; j++)
@@ -179,6 +179,7 @@ namespace summer_Assignment1
             {
 
                 int sum = 0, leftsum = 0;
+                //using the for loops to iterate through the arrays
                 for (int x = 0; x < nums.Length - 1; x++) sum += x;
                 for (int i = 0; i < nums.Length; ++i)
                 {
@@ -202,7 +203,7 @@ namespace summer_Assignment1
             {
                 int i = 0, j = 0;
                 char[] c = new char[word1.Length + word2.Length];
-
+                //iterating through the characters 
                 
                 while (i < c.Length)
                 {
