@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using System.Linq;
 using System.Text;
@@ -10,18 +10,18 @@ namespace summer_Assignment1
         static void Main(string[] args)
         {
 
-               //Question 1
-                Console.WriteLine("Q1 : Enter the Moves of Robot:");
-                string moves = Console.ReadLine();
-                bool pos = JudgeCircle(moves);
-                if (pos)
-                {
-                    Console.WriteLine("The Robot returns to the initial position (0,0)");
-                }
-                else
-                {
-                    Console.WriteLine("The Robot does not return to the initial postion (0,0)");
-                }
+            //Question 1
+            Console.WriteLine("Q1 : Enter the Moves of Robot:");
+            string moves = Console.ReadLine();
+            bool pos = JudgeCircle(moves);
+            if (pos)
+            {
+                Console.WriteLine("The Robot returns to the initial position (0,0)");
+            }
+            else
+            {
+                Console.WriteLine("The Robot does not return to the initial postion (0,0)");
+            }
 
             // Question 2
             Console.WriteLine("Q2 : Enter the string to check for pangram:");
@@ -85,7 +85,7 @@ namespace summer_Assignment1
 
 
         static public bool JudgeCircle(string moves)
-            {
+        {
             try
             {
                 //Initiliaze the variable to 0 as robot stating position is at the origin
@@ -97,16 +97,16 @@ namespace summer_Assignment1
                 {
                     //If the Move is R the robot moves once towards right so increment x by 1
                     if (pos[i] == 'R')
-                        x=x+1;
+                        x = x + 1;
                     //If the Move is L the robot moves once towards left so decrement x by 1
                     else if (pos[i] == 'L')
-                        x=x-1;
+                        x = x - 1;
                     //If the Move is U the robot moves once towards up so increment y by 1
                     else if (pos[i] == 'U')
-                        y=y+1;
+                        y = y + 1;
                     //If the Move is D the robot moves once towards down so decrement y by 1
                     else if (pos[i] == 'D')
-                        y=y-1;
+                        y = y - 1;
                 }
                 //If both x and y values are 0, it returns true, meaning that the robot returns to the starting position  
                 return (x == 0 && y == 0);
@@ -120,28 +120,29 @@ namespace summer_Assignment1
         }
         static public bool CheckIfPangram(string s)
         {
-            try { 
-            //Initialize a variable containing the 26 alphabet
-            string reg= "abcdefghijklmnopqrstuvwxyz";
-            int count = 0;
-
-            foreach (char c in reg)
+            try
             {
-                foreach (char c2 in s)
+                //Initialize a variable containing the 26 alphabet(regular expression)
+                string reg = "abcdefghijklmnopqrstuvwxyz";
+                int count = 0;
+                //Iterating every character in the regular expression and the string we entered using for loop
+                foreach (char c in reg)
                 {
-                    if (c == c2)
+                    foreach (char c2 in s)
                     {
-                        count++;
-                        break;
+                        if (c == c2)
+                        {
+                            count++;
+                            break;
+                        }
                     }
                 }
+                if (count == 26)
+                    return true;
+                else
+                    return false;
             }
-            if (count == 26)
-                return true;
-            else
-                return false;
-        }
-              catch (Exception e)
+            catch (Exception e)
             {
 
                 Console.WriteLine("An error occured: " + e.Message);
@@ -151,21 +152,22 @@ namespace summer_Assignment1
         }
         public static int NumIdenticalPairs(int[] arr)
         {
-            try { 
-            int count = 0;
-            //for
-            for (int i = 0; i < arr.Length - 1; i++)
+            try
             {
-                for (int j = i + 1; j < arr.Length; j++)
+                int count = 0;
+                //iterating using for loop through the arrays and using conditional statements to identify the good pairs
+                for (int i = 0; i < arr.Length - 1; i++)
                 {
-                    if (arr[i] == arr[j] && i < j)
-                        count++;
-                }
+                    for (int j = i + 1; j < arr.Length; j++)
+                    {
+                        if (arr[i] == arr[j] && i < j)
+                            count++;
+                    }
 
+                }
+                return count;
             }
-            return count;
-        }
-              catch (Exception e)
+            catch (Exception e)
             {
 
                 Console.WriteLine("An error occured: " + e.Message);
@@ -177,13 +179,13 @@ namespace summer_Assignment1
         {
             try
             {
-                //yyy
+
                 int sum = 0, leftsum = 0;
-                for (int x = 0; x < nums.Length; x++) sum += nums[x];
+                //using the for loops to iterate through the arrays to find the pivot index
+                for (int x = 0; x < nums.Length - 1; x++) sum += x;
                 for (int i = 0; i < nums.Length; ++i)
                 {
-                    if (leftsum == sum - leftsum - nums[i])
-                        return i;
+                    if (leftsum == sum - leftsum - nums[i]) return i;
                     leftsum += nums[i];
                 }
                 return -1;
@@ -203,11 +205,11 @@ namespace summer_Assignment1
             {
                 int i = 0, j = 0;
                 char[] c = new char[word1.Length + word2.Length];
+                //iterating through the characters 
 
-                
                 while (i < c.Length)
                 {
-                    
+
                     if (i < word1.Length)
                     {
                         c[j] = word1[i];
@@ -267,22 +269,22 @@ namespace summer_Assignment1
                         w[0] == 'A' || w[0] == 'E' || w[0] == 'I' || w[0] == 'O' || w[0] == 'U'
                       )
                     {
-                        s= s + w;
+                        s = s + w;
                     }
                     // if word starts with consonant
                     else
                     {
                         for (int i = 1; i < w.Length; i++)
-                            s=s+w[i];
+                            s = s + w[i];
                         // add first letter of the word in the end
-                        s= s + w[0];
+                        s = s + w[0];
                     }
                     // append ma
                     s = s + "ma";
                     //append a
                     for (int i = 0; i < count; i++)
-                        s=s+"a";
-                    
+                        s = s + "a";
+
                     if (count < words.Length)
                         s = s + " ";
                 }
@@ -302,9 +304,3 @@ namespace summer_Assignment1
 
     }
 }
-
-
-
-
-    
- 
